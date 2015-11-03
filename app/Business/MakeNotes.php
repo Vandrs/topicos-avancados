@@ -33,7 +33,8 @@ class MakeNotes {
             $nota = rand($rangeNotas["MIN"], $rangeNotas["MAX"]);
             $avaliacao = [
             	"note" => $nota,
-                "movie_id" => $movie->_id
+                "movie_id" => $movie->_id,
+                "movie_title" => $movie->title
             ];
             array_push($avaliacoes,$avaliacao);
         }

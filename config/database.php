@@ -85,14 +85,17 @@ return [
             'prefix'   => '',
         ],
 
-        'mongodb' => [
-            'driver'   => 'mongodb',
-            'host'     => 'localhost',
+        'mongodb' => array(
+            'driver'   => "mongodb",
+            'host'     => "localhost",
             'port'     => 27017,
-            'database' => 'pd',
-            'username' => 'projeto',
-            'password' => '12345',
-        ],
+            'database' => "topavancados",
+            'username' => "vanderson",
+            'password' => "root",
+            'options'  => [
+                "db" => "topavancados"
+            ]
+        ),
 
     ],
 

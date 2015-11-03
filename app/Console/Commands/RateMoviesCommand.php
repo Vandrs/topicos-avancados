@@ -39,6 +39,6 @@ class RateMoviesCommand extends Command
     public function handle()
     {
         $ratedMovies = RateMovies::doAction();
-        $this->info($ratedMovies.' filmes avaliados.');
+        $this->info($ratedMovies.' avaliações realizadas.');
     }
 }

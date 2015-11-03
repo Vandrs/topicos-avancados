@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste',[ 'as' => 'teste', 'uses' => 'TesteController@index' ]);
+Route::get('/recomendacao',[ 'as' => 'teste', 'uses' => 'PredictionController@index' ]);

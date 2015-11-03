@@ -47,8 +47,8 @@ class MdiffNotes{
 			if($noteA && $noteB){
 				$diff = $noteA->note - $noteB->note;
 				$data = [
-					"movieA_id" => $noteA->id,
-					"mobieB_id" => $noteB->id, 
+					"movieA_id" => $noteA->movie_id,
+					"movieB_id" => $noteB->movie_id, 
 					"diff"      => $diff
 				];
 				Mdiff::create($data);
