@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/recomendacao',[ 'as' => 'teste', 'uses' => 'PredictionController@index' ]);
+//Route::get('/filmes/from-imdb',[ 'as' => 'mobies.imdb', 'uses' => 'MovieController@getFromIMDB' ]);
+//Route::post('/filmes/insert',[ 'as' => 'movies.insert', 'uses' => 'MovieController@insertMovies' ]);
