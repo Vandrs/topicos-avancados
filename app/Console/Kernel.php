@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\InsertUser::class,
         \App\Console\Commands\InsertMovie::class,
         \App\Console\Commands\RateMoviesCommand::class,
-        \App\Console\Commands\MakeDiffMatriz::class
+        \App\Console\Commands\MakeDiffMatriz::class,
+        \App\Console\Commands\CreateMultipleUsers::class
     ];
 
     /**

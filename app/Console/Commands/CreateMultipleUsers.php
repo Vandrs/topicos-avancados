@@ -3,24 +3,24 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Business\RateMovies;
+use App\Models\User;
 use App\Business\Benchmark;
 
-class RateMoviesCommand extends Command
+class CreateMultipleUsers extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'movie:rate {qtd : quantidade de filmes a serem avaliados}';
+    protected $signature = 'user:insert-multiple {qtd : quantidade de usuarios a inserir}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Avalia os filmes na quantidade informada.';
+    protected $description = 'Cria multiplos usuarios conforme parametro passado';
 
     /**
      * Create a new command instance.
@@ -41,13 +41,17 @@ class RateMoviesCommand extends Command
     {
         $benchmarck = new Benchmark;
         $benchmarck->start();
-        $qtd = $this->argument('qtd');
-        if(!is_numeric($qtd)){
-            $this->error('O parametro qtd deve ser um numero inteiro');
+        $qtdCriar = $this->argument('qtd');
+        if(!is_numeric($qtdCriar)){
+            $this->error('Parametro qtd deve ser um numero inteiro.');
             return;
         }
-        $ratedMovies = RateMovies::doAction($qtd);
-        $this->info($ratedMovies.' avaliações realizadas.');
+        $qtdUsers = User::query()->count();
+        $until = $qtdUsers+$qtdCriar;
+        for($qtdUsers; $qtdUsers < $until; $qtdUsers++){
+            User::create(['name' => 'Usuário '.($qtdUsers+1)]);
+        }
+        $this->info("Usuarios criados com sucesso!");
         $this->info("Tem decorrido: ". $benchmarck->stop()->elapsedSeconds());
     }
 }

@@ -9,12 +9,12 @@ use App\Business\MakeNotes;
 use DB;
 
 class RateMovies {
-    public static function doAction(){
+    public static function doAction($qtdProjetosAvaliar){
         $users = User::all();
         $movies = Movie::all();
         $notesMaker = new MakeNotes($users->all(),$movies->all());
         $rangeNotes = ["MIN"=>3,"MAX"=>10];
-        $avaliacoes = $notesMaker->makeNotes($rangeNotes,6);
+        $avaliacoes = $notesMaker->makeNotes($rangeNotes,$qtdProjetosAvaliar);
         DB::collection('notes')->delete();
         $notes = [];
         foreach($avaliacoes as $avaliacoesUsuario){

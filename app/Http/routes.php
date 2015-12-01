@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/recomendacao',[ 'as' => 'teste', 'uses' => 'PredictionController@index' ]);
-//Route::get('/filmes/from-imdb',[ 'as' => 'mobies.imdb', 'uses' => 'MovieController@getFromIMDB' ]);
-//Route::post('/filmes/insert',[ 'as' => 'movies.insert', 'uses' => 'MovieController@insertMovies' ]);
+//Route::get('/recomendacao',[ 'as' => 'teste', 'uses' => 'PredictionController@index' ]);
+Route::get('/usuario/{id}',[ 'as' => 'user', 'uses' => 'PredictionController@user' ]);
+Route::get('/usuarios',[ 'as' => 'users', 'uses' => 'PredictionController@users' ]);
+Route::get('/filme/{id}',[ 'as' => 'movie', 'uses' => 'PredictionController@movie' ]);
+Route::get('/filmes',[ 'as' => 'movies', 'uses' => 'PredictionController@movies' ]);
+/*
+Route::get('/filmes/from-imdb',[ 'as' => 'mobies.imdb', 'uses' => 'MovieController@getFromIMDB' ]);
+*/
+Route::post('/filmes/insert',[ 'as' => 'movies.insert', 'uses' => 'MovieController@insertMovies' ]);
+

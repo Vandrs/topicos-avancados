@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Business\MdiffNotes;
+use App\Business\Benchmark;
 
 class MakeDiffMatriz extends Command
 {
@@ -38,8 +39,11 @@ class MakeDiffMatriz extends Command
      */
     public function handle()
     {
+        $benchmarck = new Benchmark;
+        $benchmarck->start();
         $mdiff = new MdiffNotes;
         $qtdMdiff = $mdiff->make();
         $this->info($qtdMdiff." Diferenças calculadas.");
+        $this->info("Tem decorrido: ". $benchmarck->stop()->elapsedSeconds());
     }
 }

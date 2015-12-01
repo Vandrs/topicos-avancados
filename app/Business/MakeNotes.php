@@ -21,6 +21,7 @@ class MakeNotes {
             $notes = $this->makeNotas($moviesAvaliar, $rangeNotas);
             foreach($notes as $idx => $note){
             	$notes[$idx]["user_id"] = $usuario->_id;
+                $notes[$idx]["user_name"] = $usuario->name;
             }
             array_push($avaliacoes, $notes);
         }
